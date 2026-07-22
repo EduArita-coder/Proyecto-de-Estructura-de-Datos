@@ -1,0 +1,96 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6D28D9"/>
+      <stop offset="55%" stop-color="#4F1FA0"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="controllerBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="btnA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="btnB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F87171"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+    <linearGradient id="dieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#glow)"/>
+
+  <!-- Floating game elements (variety of games) -->
+  <!-- Die (board/dice games) -->
+  <g transform="translate(96,108) rotate(-18)">
+    <rect x="0" y="0" width="86" height="86" rx="18" fill="url(#dieGrad)" stroke="#B45309" stroke-width="4"/>
+    <circle cx="22" cy="22" r="7" fill="#7C2D12"/>
+    <circle cx="64" cy="22" r="7" fill="#7C2D12"/>
+    <circle cx="22" cy="64" r="7" fill="#7C2D12"/>
+    <circle cx="64" cy="64" r="7" fill="#7C2D12"/>
+    <circle cx="43" cy="43" r="7" fill="#7C2D12"/>
+  </g>
+
+  <!-- Playing card (card games) -->
+  <g transform="translate(352,86) rotate(16)">
+    <rect x="0" y="0" width="70" height="98" rx="12" fill="url(#cardGrad)" stroke="#0369A1" stroke-width="4"/>
+    <path d="M35 26 L44 46 L35 66 L26 46 Z" fill="#F0F9FF"/>
+  </g>
+
+  <!-- Joystick topper (arcade games) -->
+  <g transform="translate(378,300)">
+    <circle cx="0" cy="0" r="30" fill="url(#btnB)" stroke="#7F1D1D" stroke-width="4"/>
+    <rect x="-8" y="20" width="16" height="46" rx="8" fill="#4B5563"/>
+  </g>
+
+  <!-- Central game controller (core icon, represents gaming hub) -->
+  <g transform="translate(96,236)">
+    <path d="M64 0
+             C24 0 6 22 2 62
+             C-2 100 -8 160 12 190
+             C24 208 46 208 58 186
+             C66 170 78 158 100 156
+             L220 156
+             C242 158 254 170 262 186
+             C274 208 296 208 308 190
+             C328 160 322 100 318 62
+             C314 22 296 0 256 0
+             Z"
+          fill="url(#controllerBody)" stroke="#94A3B8" stroke-width="4"/>
+
+    <!-- D-pad -->
+    <g fill="#334155">
+      <rect x="46" y="70" width="24" height="66" rx="6"/>
+      <rect x="25" y="91" width="66" height="24" rx="6"/>
+    </g>
+
+    <!-- Action buttons -->
+    <circle cx="270" cy="76" r="15" fill="url(#btnA)" stroke="#166534" stroke-width="3"/>
+    <circle cx="238" cy="108" r="15" fill="url(#btnB)" stroke="#7F1D1D" stroke-width="3"/>
+    <circle cx="270" cy="140" r="15" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    <circle cx="302" cy="108" r="15" fill="#FBBF24" stroke="#92400E" stroke-width="3"/>
+
+    <!-- Center brand dot -->
+    <circle cx="160" cy="86" r="14" fill="#7C3AED"/>
+  </g>
+
+  <!-- GAMESTATION wordmark -->
+  <text x="256" y="470" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-weight="800"
+        font-size="46" letter-spacing="2" fill="#F8FAFC">GAMESTATION</text>
+</svg>

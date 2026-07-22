@@ -13,13 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.texto-main{
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 700;
+  color: #2630ea;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #2b35f1;
 }
 
 body {
@@ -28,6 +34,29 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background: url('/gamestation-fondo.png') center/cover no-repeat;
+  filter: blur(9px);
+  z-index: -1;
+  animation: moverFondo 10s linear infinite alternate;
+  opacity: 0.8;
+  background-attachment: fixed
+}
+
+@keyframes moverFondo {
+  from {
+    background-position: 0 -40;
+  }
+  to {
+    background-position: 100% 0;
+  }
 }
 
 h1 {
