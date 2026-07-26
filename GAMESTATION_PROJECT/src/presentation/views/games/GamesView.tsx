@@ -1,14 +1,13 @@
-import { Gamepad2, Layers, Tv, Flame } from "lucide-react";
+import {useNavigate } from "react-router";
 
 interface GameCardProps {
   title: string;
   description: string;
-  structure: string;
+  onPlay:() => void;
   status: "Completado" | "En Desarrollo" | "Planificado";
   icon: React.ReactNode;
 }
-
-const GameCard = ({ title, description, structure, status, icon }: GameCardProps) => {
+const GameCard = ({ title, description, status, icon,onPlay}: GameCardProps) => {
   const statusColors = {
     Completado: "border-emerald-500/20 bg-emerald-950/30 text-emerald-400",
     "En Desarrollo": "border-amber-500/20 bg-amber-950/30 text-amber-400",
@@ -16,7 +15,7 @@ const GameCard = ({ title, description, structure, status, icon }: GameCardProps
   };
 
   return (
-    <div className="group relative rounded-xl border border-blue-500/5 bg-zinc-900/50 p-6 backdrop-blur-sm">
+    <div className="group relative rounded-xl border border-blue-500/5 bg-zinc-900/50 p-6 backdrop-blur-sm flex flex-col">
       <div className={`absolute top-4 right-4 rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusColors[status]}`}>
         {status}
       </div>
@@ -34,8 +33,8 @@ const GameCard = ({ title, description, structure, status, icon }: GameCardProps
       </p>
 
       <div className="border-t border-zinc-800/40 pt-3 mt-auto">
-        <span className="text-[10px] text-blue-400 font-mono">
-          Estructura: {structure}
+        <span className="text-[20px] text-white font-mono">
+          <button onClick={onPlay} className="mt-auto bg-linear-to-r from-purple-900 to-indigo-400 rounded-2xl ml-auto w-auto h-10 cursor-pointer hover:bg-purple-600">Empezar</button>
         </span>
       </div>
     </div>
@@ -43,59 +42,39 @@ const GameCard = ({ title, description, structure, status, icon }: GameCardProps
 };
 
 export const GamesView = () => {
+  const navigate = useNavigate();
   const games: GameCardProps[] = [
     {
-      title: "Minecraft",
-      description: "Mundo de bloques tridimensionales infinitos construidos a partir de terreno procedural.",
-      structure: "Octree / Grafo 3D",
-      status: "Planificado",
-      icon: <Layers className="h-5 w-5" />,
+      title: "Ahorcado",
+      description: "Adivina la palabra oculta letra por letra antes de que se complete el dibujo del ahorcado. Cada error te acerca un paso más a la derrota, ¡así que piensa bien tus letras!",
+      status: "En Desarrollo",
+      icon: <img src="/public/Games/icono_ahorcado.svg"/>,
+      onPlay: () => navigate("/games/ahorcado"),
     },
     {
-      title: "GTA VI",
-      description: "Acción en mundo abierto masivo ambientado en Vice City, con física avanzada e inteligencia artificial.",
-      structure: "Grafo de Rutas / Cola de Eventos",
-      status: "Planificado",
-      icon: <Flame className="h-5 w-5" />,
+      title: "Memoria",
+      description: "Encuentra las parejas de cartas iguales volteándolas de dos en dos. Pon a prueba tu memoria y concentración: entre menos intentos uses, mejor será tu puntuación.",
+      status: "En Desarrollo",
+      icon: <img src="/public/Games/icono_memoria.svg"/>,
+      onPlay: () => navigate("/games/Memoria"),
     },
     {
-      title: "Tetris",
-      description: "Encajar bloques geométricos en caída libre dentro de una grilla bidimensional limpia.",
-      structure: "Matriz Bidimensional",
-      status: "Planificado",
-      icon: <Gamepad2 className="h-5 w-5" />,
-    },
-    {
-      title: "Pac-Man",
-      description: "Laberinto clásico en el que debes consumir puntos mientras evitas ser capturado por fantasmas.",
-      structure: "Grafo (BFS / DFS)",
-      status: "Planificado",
-      icon: <Tv className="h-5 w-5" />,
-    },
-    {
-      title: "Roblox",
-      description: "Plataforma multijugador masiva basada en la creación y renderizado dinámico de mundos virtuales.",
-      structure: "Árbol de Escena (Scene Graph)",
-      status: "Planificado",
-      icon: <Layers className="h-5 w-5" />,
-    },
-    {
-      title: "League of Legends",
-      description: "Estrategia de combate en equipos sobre un mapa con cálculos de colisión y búsqueda de rutas constantes.",
-      structure: "Grafo / Pathfinding A*",
-      status: "Planificado",
-      icon: <Flame className="h-5 w-5" />,
+      title: "Rompecabezas Deslizante",
+      description: "Ordena las piezas numeradas moviéndolas dentro de la cuadrícula usando el único espacio vacío. Un clásico de lógica y paciencia que pone a prueba tu capacidad de planificación.",
+      status: "En Desarrollo",
+      icon: <img src="/public/Games/icono_puzzle_deslizante.svg"/>,
+      onPlay: () => navigate("/games/Rompecabezas"),
     },
   ];
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-          Planificación de Juegos
+        <h2 className="text-3xl font-extrabold from-blue-400 to-indigo-400 bg-clip-text">
+          Listado de Juegos
         </h2>
         <p className="mt-2 text-zinc-400 text-sm max-w-xl mx-auto">
-          Propuestas iniciales de juegos comerciales y análisis de las estructuras de datos que manejan.
+          Elije un Juego de tu preferencia 
         </p>
       </div>
 
