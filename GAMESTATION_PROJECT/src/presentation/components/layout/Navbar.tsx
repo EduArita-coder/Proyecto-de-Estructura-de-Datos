@@ -31,7 +31,7 @@ export const Navbar = () => {
                         <a href="/" rel="noreferrer">
                             <img src={appLogo} className="h-10 w-10 rounded-lg object-contain" alt="GAMESTATION logo" />
                         </a>
-                        <h1 className="text-2xl font-bold tracking-wide text-blue-100 sm:text-3xl">
+                        <h1 className="text-2xl font-bold tracking-wide bg-linear-to-r from-purple-900 to-indigo-400 sm:text-3xl bg-clip-text text-transparent">
                             GAMESTATION
                         </h1>
                     </div>

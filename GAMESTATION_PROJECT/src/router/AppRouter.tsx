@@ -1,6 +1,9 @@
 import { Route, Routes } from "react-router";
 import { Navbar } from "../presentation/components";
 import { HomeView, GamesView } from "../presentation/views";
+import AhorcadoGame from "../presentation/Games/AhorcadoGame";
+import MemoriaGame from "../presentation/Games/MemoriaGame";
+import { RompecabezasGames } from "../presentation/Games/RompecabezasGames";
 
 export const AppRouter = () => {
     return (
@@ -12,12 +15,15 @@ export const AppRouter = () => {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
                 
-                <main className="flex-grow">
+                <main className="flex grow">
                     <Routes>
                         <Route path="/" element={<HomeView />} />
                         <Route path="/games" element={<GamesView />} />
                         {/* Redireccionar cualquier ruta desconocida al Home */}
                         <Route path="*" element={<HomeView />} />
+                        <Route path="/games/ahorcado" element={<AhorcadoGame />} />
+                        <Route path="/games/Memoria" element={<MemoriaGame />} />
+                        <Route path="/games/Rompecabezas" element={<RompecabezasGames />} />
                     </Routes>
                 </main>
             </div>
