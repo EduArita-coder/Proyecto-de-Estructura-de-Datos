@@ -19,11 +19,11 @@ export const AppRouter = () => {
                     <Routes>
                         <Route path="/" element={<HomeView />} />
                         <Route path="/games" element={<GamesView />} />
-                        {/* Redireccionar cualquier ruta desconocida al Home */}
-                        <Route path="*" element={<HomeView />} />
                         <Route path="/games/ahorcado" element={<AhorcadoGame />} />
                         <Route path="/games/Memoria" element={<MemoriaGame />} />
                         <Route path="/games/Rompecabezas" element={<RompecabezasGames />} />
+                        {/* Redireccionar cualquier ruta desconocida al Home */}
+                        <Route path="*" element={<HomeView />} />
                     </Routes>
                 </main>
             </div>
