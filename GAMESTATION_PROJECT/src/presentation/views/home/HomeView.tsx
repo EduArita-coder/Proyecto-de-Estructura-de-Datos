@@ -10,7 +10,7 @@ export const HomeView = () => {
           GAMESTATION
         </h2>
         <p className="mt-4 text-lg text-blue-100 max-w-2xl font-light">
-          Plataforma en desarrollo para visualizar estructuras de datos y algoritmos a través de juegos interactivos.
+          Plataforma para visualizar estructuras de datos y algoritmos a través de juegos interactivos.
         </p>
         <div className="mt-8 flex justify-center ">
           <Link
