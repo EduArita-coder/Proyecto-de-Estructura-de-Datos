@@ -4,22 +4,11 @@ interface GameCardProps {
   title: string;
   description: string;
   onPlay:() => void;
-  status: "Completado" | "En Desarrollo" | "Planificado";
   icon: React.ReactNode;
 }
-const GameCard = ({ title, description, status, icon,onPlay}: GameCardProps) => {
-  const statusColors = {
-    Completado: "border-emerald-500/20 bg-emerald-950/30 text-emerald-400",
-    "En Desarrollo": "border-amber-500/20 bg-amber-950/30 text-amber-400",
-    Planificado: "border-zinc-500/20 bg-zinc-950/30 text-zinc-400",
-  };
-
+const GameCard = ({ title, description, icon,onPlay}: GameCardProps) => {
   return (
     <div className="group relative rounded-xl border border-blue-500/5 bg-zinc-900/50 p-6 backdrop-blur-sm flex flex-col">
-      <div className={`absolute top-4 right-4 rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusColors[status]}`}>
-        {status}
-      </div>
-      
       <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4">
         {icon}
       </div>
@@ -47,21 +36,18 @@ export const GamesView = () => {
     {
       title: "Ahorcado",
       description: "Adivina la palabra oculta letra por letra antes de que se complete el dibujo del ahorcado. Cada error te acerca un paso más a la derrota, ¡así que piensa bien tus letras!",
-      status: "En Desarrollo",
       icon: <img src="/public/Games/icono_ahorcado.svg"/>,
       onPlay: () => navigate("/games/ahorcado"),
     },
     {
       title: "Memoria",
       description: "Encuentra las parejas de cartas iguales volteándolas de dos en dos. Pon a prueba tu memoria y concentración: entre menos intentos uses, mejor será tu puntuación.",
-      status: "En Desarrollo",
       icon: <img src="/public/Games/icono_memoria.svg"/>,
       onPlay: () => navigate("/games/Memoria"),
     },
     {
       title: "Rompecabezas Deslizante",
       description: "Ordena las piezas numeradas moviéndolas dentro de la cuadrícula usando el único espacio vacío. Un clásico de lógica y paciencia que pone a prueba tu capacidad de planificación.",
-      status: "En Desarrollo",
       icon: <img src="/public/Games/icono_puzzle_deslizante.svg"/>,
       onPlay: () => navigate("/games/Rompecabezas"),
     },
