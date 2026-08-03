@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { useAhorcado } from "../../assets/Hooks/Ahorcado Hooks/useAhorcado";
 import { RotateCcw, Trophy, ArrowLeft, Trash2, HelpCircle } from "lucide-react";
 

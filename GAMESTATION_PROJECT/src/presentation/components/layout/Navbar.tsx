@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react"
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import { NavLink } from "./NavLink";
 import { MobileNavLink } from "./MobileNavLink";
 import appLogo from '/gamestation-icon.svg'

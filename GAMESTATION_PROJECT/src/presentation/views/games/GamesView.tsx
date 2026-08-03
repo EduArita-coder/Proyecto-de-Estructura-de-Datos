@@ -1,5 +1,5 @@
 import React from "react";
-import {useNavigate } from "react-router";
+import {useNavigate } from "react-router-dom";
 
 interface GameCardProps {
   title: string;
@@ -39,19 +39,19 @@ export const GamesView = () => {
     {
       title: "Ahorcado",
       description: "Adivina la palabra oculta letra por letra antes de que se complete el dibujo del ahorcado. Cada error te acerca un paso más a la derrota, ¡así que piensa bien tus letras!",
-      icon: <img src="/public/Games/icono_ahorcado.svg"/>,
+      icon: <img src="/Games/icono_ahorcado.svg"/>,
       onPlay: () => navigate("/games/ahorcado"),
     },
     {
       title: "Memoria",
       description: "Encuentra las parejas de cartas iguales volteándolas de dos en dos. Pon a prueba tu memoria y concentración: entre menos intentos uses, mejor será tu puntuación.",
-      icon: <img src="/public/Games/icono_memoria.svg"/>,
+      icon: <img src="/Games/icono_memoria.svg"/>,
       onPlay: () => navigate("/games/Memoria"),
     },
     {
       title: "Rompecabezas Deslizante",
       description: "Ordena las piezas numeradas moviéndolas dentro de la cuadrícula usando el único espacio vacío. Un clásico de lógica y paciencia que pone a prueba tu capacidad de planificación.",
-      icon: <img src="/public/Games/icono_puzzle_deslizante.svg"/>,
+      icon: <img src="/Games/icono_puzzle_deslizante.svg"/>,
       onPlay: () => navigate("/games/Rompecabezas"),
     },
   ];
