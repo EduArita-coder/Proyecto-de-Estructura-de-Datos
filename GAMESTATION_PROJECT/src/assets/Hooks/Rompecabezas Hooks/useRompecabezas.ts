@@ -6,6 +6,8 @@ export const useRompecabezas = () => {
     const [tablero, setTablero] = useState<Tablero>([]);
     const [isWinner, setIsWinner] = useState<boolean>(false);
     const [movimientos, setMovimientos] = useState<number>(0);
+    const [partidasGanadas, setPartidasGanadas] = useState<number>(0);
+    const [partidasJugadas, setPartidasJugadas] = useState<number>(0);
 
     const iniciarJuego = () => {
         const nuevoTablero = [1, 2, 3, 4, 5, 6, 7, 8, 0];
@@ -53,6 +55,12 @@ export const useRompecabezas = () => {
         } else {
             iniciarJuego();
         }
+
+        const ganadasGuardadas = localStorage.getItem('rompecabezas_ganadas');
+        const jugadasGuardadas = localStorage.getItem('rompecabezas_jugadas');
+
+        if (ganadasGuardadas) setPartidasGanadas(Number(ganadasGuardadas));
+        if (jugadasGuardadas) setPartidasJugadas(Number(jugadasGuardadas));
     }, []);
 
     useEffect(() => {
@@ -63,6 +71,18 @@ export const useRompecabezas = () => {
 
         if (gano && !isWinner) {
             setIsWinner(true);
+
+            setPartidasGanadas((prev) => {
+                const nuevasGanadas = prev + 1;
+                localStorage.setItem('rompecabezas_ganadas', String(nuevasGanadas));
+                return nuevasGanadas;
+            });
+
+            setPartidasJugadas((prev) => {
+                const nuevasJugadas = prev + 1;
+                localStorage.setItem('rompecabezas_jugadas', String(nuevasJugadas));
+                return nuevasJugadas;
+            });
         }
 
         localStorage.setItem('rompecabezas_estado', JSON.stringify({
@@ -72,11 +92,21 @@ export const useRompecabezas = () => {
         }));
     }, [tablero, movimientos, isWinner]);
 
+    const restablecerEstadisticas = () => {
+        setPartidasGanadas(0);
+        setPartidasJugadas(0);
+        localStorage.setItem('rompecabezas_ganadas', '0');
+        localStorage.setItem('rompecabezas_jugadas', '0');
+    };
+
     return {
         tablero,
         isWinner,
         movimientos,
         moverPieza,
         iniciarJuego,
+        partidasGanadas,
+        partidasJugadas,
+        restablecerEstadisticas,
     };
 };
