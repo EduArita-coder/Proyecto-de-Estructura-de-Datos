@@ -24,7 +24,7 @@ export const Navbar = () => {
 
     return (
         <nav className="border-b border-blue-500/20 bg-[#1a1a1a] text-white shadow-lg shadow-blue-950/30 backdrop-blur-sm">
-            <div className="mx-auto max-w-7xl px-4">
+            <div className="mx-auto max-w-7xl">
                 <div className="flex h-16 items-center justify-between">
                     {/* Inicio logo y Titulo */}
                     <div className="flex items-center gap-3">
