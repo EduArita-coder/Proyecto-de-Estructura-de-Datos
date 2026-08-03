@@ -34,17 +34,26 @@ function PWABadge() {
 
   return (
     <div className="PWABadge" role="alert" aria-labelledby="toast-message">
-      { (needRefresh)
-      && (
+      {needRefresh && (
         <div className="PWABadge-toast">
           <div className="PWABadge-message">
-            <span id="toast-message">New content available, click on reload button to update.</span>
-              
-              
+            <span id="toast-message">¡Actualización disponible! Pulsa recargar para activar la nueva versión.</span>
           </div>
           <div className="PWABadge-buttons">
-            <button className="PWABadge-toast-button" onClick={() => updateServiceWorker(true)}>Reload</button>
-            <button className="PWABadge-toast-button" onClick={() => close()}>Close</button>
+            <button
+              type="button"
+              className="PWABadge-toast-button"
+              onClick={() => updateServiceWorker(true)}
+            >
+              Recargar ahora
+            </button>
+            <button
+              type="button"
+              className="PWABadge-toast-button"
+              onClick={() => close()}
+            >
+              Cerrar
+            </button>
           </div>
         </div>
       )}

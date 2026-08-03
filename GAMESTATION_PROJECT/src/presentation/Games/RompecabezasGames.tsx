@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { useRompecabezas } from "../../assets/Hooks/Rompecabezas Hooks/useRompecabezas";
 import { Trophy, Trash2, HelpCircle, ArrowLeft } from "lucide-react";
 

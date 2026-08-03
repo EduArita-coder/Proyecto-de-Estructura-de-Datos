@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import { Navbar } from "../presentation/components";
 import { HomeView, GamesView } from "../presentation/views";
 import AhorcadoGame from "../presentation/Games/AhorcadoGame";
