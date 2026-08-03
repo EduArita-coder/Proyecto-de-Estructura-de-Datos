@@ -9,9 +9,9 @@ export const RompecabezasGames = () => {
 
   return (
     
-    <div className="flex flex-col items-center justify-center w-full py-10">
-      <div className="bg-zinc-900/50 backdrop-blur-sm border border-blue-500/5 p-8 rounded-xl shadow-2xl max-w-md w-full text-center">
-        <div className="flex items-center justify-between mb-6">
+    <div className="flex w-full flex-col items-center justify-start px-3 py-4 sm:px-4 sm:py-6 min-w-0">
+      <div className="w-full max-w-[calc(100vw-1.5rem)] rounded-xl border border-blue-500/5 bg-zinc-900/50 p-4 text-center shadow-2xl sm:max-w-lgshadow-2xl backdrop-blur-sm sm:max-w-lg sm:p-6">
+        <div className="mb-4 flex items-center justify-between sm:mb-6">
           <Link
             to="/games"
             className="flex items-center gap-2 rounded-lg border border-blue-500/10 bg-zinc-950/70 px-3 py-2 text-sm font-semibold text-blue-200 transition hover:bg-blue-900/20"
@@ -21,17 +21,17 @@ export const RompecabezasGames = () => {
           </Link>
         </div>
 
-        <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-indigo-400 mb-6">
+        <h2 className="mb-4 bg-linear-to-r from-blue-400 to-indigo-400 bg-clip-text text-2xl font-extrabold text-transparent sm:mb-6 sm:text-3xl">
           Rompecabezas Deslizante
         </h2>
 
-        <div className="flex justify-between items-center mb-6 px-2">
-          <span className="text-zinc-400 text-sm font-mono">
+        <div className="mb-4 flex flex-col items-start justify-between gap-3 px-1 sm:mb-6 sm:flex-row sm:items-center">
+          <span className="text-sm font-mono text-zinc-400">
             Movimientos: <span className="text-blue-400 font-bold text-lg ml-1">{movimientos}</span>
           </span>
           <button 
             onClick={iniciarJuego}
-            className="bg-linear-to-r from-purple-900 to-indigo-400 hover:bg-purple-600 text-white px-5 py-2 rounded-2xl text-sm cursor-pointer transition-all"
+            className="cursor-pointer rounded-2xl bg-linear-to-r from-purple-900 to-indigo-400 px-4 py-2 text-sm text-white transition-all hover:bg-purple-600"
           >
             Reiniciar
           </button>
@@ -44,17 +44,16 @@ export const RompecabezasGames = () => {
         )}
 
         {/* Tablero (Grid de 3x3) */}
-        <div className="grid grid-cols-3 gap-3 bg-zinc-950/30 p-4 rounded-xl border border-blue-500/5">
+        <div className="grid grid-cols-3 gap-2 rounded-xl border border-blue-500/5 bg-zinc-950/30 p-3 sm:gap-3 sm:p-4">
           {tablero.map((numero, index) => (
             <button
               key={index}
               onClick={() => moverPieza(index)}
               disabled={isWinner}
               className={`
-                h-24 text-3xl font-mono font-bold rounded-xl flex items-center justify-center transition-all duration-200 
+                h-12 text-2xl font-mono font-bold rounded-xl flex items-center justify-center transition-all duration-200 sm:h-16-3xl 
                 ${numero === 0 
                   ? 'bg-transparent shadow-none border border-dashed border-zinc-700/30 cursor-default' 
-                  // Fichas usando el estilo de GamesView
                   : 'bg-zinc-900/80 hover:bg-zinc-800 text-white border border-blue-500/10 cursor-pointer transform hover:scale-[1.02] active:scale-95 shadow-md shadow-blue-500/5'
                 }
               `}
@@ -64,9 +63,9 @@ export const RompecabezasGames = () => {
           ))}
         </div>
 
-        <div className="mt-8 border-t border-zinc-800/40 pt-6">
-          <div className="flex flex-wrap items-center justify-between gap-4 bg-zinc-950/20 p-4 rounded-xl border border-blue-500/5">
-            <div className="flex items-center gap-6">
+        <div className="mt-6 border-t border-zinc-800/40 pt-4 sm:mt-8 sm:pt-6">
+          <div className="flex flex-col items-start justify-between gap-4 rounded-xl border border-blue-500/5 bg-zinc-950/20 p-3 sm:flex-row sm:items-center sm:p-4">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               <div className="flex items-center gap-2">
                 <Trophy className="h-5 w-5 text-yellow-500" />
                 <div>
@@ -90,10 +89,10 @@ export const RompecabezasGames = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4">
               <div className="flex items-center gap-1.5 text-zinc-400 text-xs bg-zinc-900/60 px-3 py-1.5 rounded-lg border border-zinc-800">
                 <HelpCircle className="h-3.5 w-3.5 text-blue-400" />
-                <span>Movimientos óptimos: menor es mejor</span>
+                <span className="text-[11px] sm:text-xs">Movimientos óptimos: menor es mejor</span>
               </div>
 
               <button

@@ -30,7 +30,7 @@ export const AhorcadoGame = () => {
     const fallos = 6 - intentosRestantes;
 
     return (
-      <svg className="w-64 h-64 mx-auto drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]" viewBox="0 0 200 200">
+      <svg className="mx-auto h-40 w-40 drop-shadow-[0_0_10px_rgba(59,130,246,0.3)] sm:h-56 sm:w-56" viewBox="0 0 200 200">
         {/* Base, poste principal, barra horizontal superior, cuerda (Siempre visibles) */}
         <line x1="20" y1="180" x2="180" y2="180" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round" />
         <line x1="60" y1="180" x2="60" y2="20" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round" />
@@ -71,9 +71,9 @@ export const AhorcadoGame = () => {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 flex flex-col justify-between min-h-[85vh]">
+    <div className="mx-auto flex w-full max-w-full3 py-4 sm:px-4 sm:py-6 md:px-6 md:py-8">
       {/* Botón de Regresar y Título */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="mb-4 flex items-center justify-between sm:mb-6">
         <Link
           to="/games"
           className="flex items-center gap-2 rounded-lg border border-blue-500/10 bg-zinc-900/60 px-4 py-2 text-sm font-semibold text-blue-200 transition hover:bg-blue-900/20"
@@ -84,17 +84,17 @@ export const AhorcadoGame = () => {
       </div>
 
       {/* Grid Principal */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-zinc-900/40 p-6 rounded-2xl border border-blue-500/5 backdrop-blur-sm">
+      <div className="grid grid-cols-1 items-start gap-4 rounded-2xl border border-blue-500/5 bg-zinc-900/40 p-4 backdrop-blur-sm sm:gap-6 sm:p-5 md:grid-cols-2 min-w-0">
         
         {/* Lado Izquierdo: SVG del Ahorcado */}
         <div className="flex flex-col items-center justify-center p-4">
           {renderAhorcadoSVG()}
           
-          <div className="mt-4 text-center">
+          <div className="mt-3 text-center sm:mt-4">
             <span className="text-xs text-zinc-400 uppercase tracking-widest font-mono">
               Intentos restantes
             </span>
-            <p className={`text-3xl font-extrabold mt-1 font-mono ${
+            <p className={`mt-1 text-2xl font-extrabold font-mono sm:text-3xl ${
               intentosRestantes <= 2 ? "text-rose-500" : "text-blue-400"
             }`}>
               {intentosRestantes} / 6
@@ -106,11 +106,11 @@ export const AhorcadoGame = () => {
         <div className="flex flex-col justify-center">
           
           {/* Palabra a adivinar */}
-          <div className="flex justify-center gap-2 md:gap-3 flex-wrap mb-8">
+          <div className="mb-4 flex flex-wrap justify-center gap-1.5 sm:mb-6 sm:gap-2 md:gap-3">
             {palabraOculta.map((letra, index) => (
               <span
                 key={index}
-                className="w-8 h-10 md:w-10 md:h-12 border-b-4 border-blue-500 flex items-center justify-center text-xl md:text-2xl font-bold font-mono text-white"
+                className="flex h-9 w-7 items-center justify-center border-b-4 border-blue-500 text-lg font-bold font-mono text-white sm:h-10 sm:w-8 sm:text-xl md:h-12 md:w-10 md:text-2xl"
               >
                 {letra !== "_" ? letra : ""}
               </span>
@@ -118,7 +118,7 @@ export const AhorcadoGame = () => {
           </div>
 
           {/* Tablero del Teclado */}
-          <div className="grid grid-cols-7 gap-2 mb-6">
+          <div className="mb-4 grid grid-cols-4 gap-1.5 sm:mb-6 sm:grid-cols-7">
             {TECLADO.map((letra) => {
               const fuePresionada = letrasAdivinadas.has(letra);
               const esCorrecta = fuePresionada && palabra.includes(letra);
@@ -135,8 +135,7 @@ export const AhorcadoGame = () => {
                   key={letra}
                   onClick={() => intentarLetra(letra)}
                   disabled={fuePresionada || juegoGanado || juegoPerdido}
-                  className={`border rounded-lg py-2 text-sm font-bold font-mono transition-all duration-200 ${botonClase}`}
-                >
+                  className={`min-w-0 rounded-lg border py-2 text-[11px] font-bold font-mono transition-all duration-200 px-0 text-sm ${botonClase}`}>
                   {letra}
                 </button>
               );
@@ -146,14 +145,14 @@ export const AhorcadoGame = () => {
           {/* Mensajes de Victoria / Derrota */}
           {juegoGanado && (
             <div className="text-center p-4 bg-emerald-950/40 border border-emerald-500/30 rounded-xl mb-4">
-              <h3 className="text-lg font-bold text-emerald-400">¡Felicidades, ganaste! 🎉</h3>
+              <h3 className="text-base font-bold text-emerald-400 sm:text-lg">¡Felicidades, ganaste! 🎉</h3>
               <p className="text-xs text-zinc-300 mt-1">Has adivinado la palabra técnica.</p>
             </div>
           )}
 
           {juegoPerdido && (
             <div className="text-center p-4 bg-rose-950/40 border border-rose-500/30 rounded-xl mb-4">
-              <h3 className="text-lg font-bold text-rose-400">¡Fin del juego! 💀</h3>
+              <h3 className="text-base font-bold text-rose-400 sm:text-lg">¡Fin del juego! 💀</h3>
               <p className="text-xs text-zinc-300 mt-1">
                 La palabra era: <span className="font-bold text-white tracking-widest">{palabra}</span>
               </p>
@@ -164,7 +163,7 @@ export const AhorcadoGame = () => {
           <div className="flex gap-4">
             <button
               onClick={reiniciarJuego}
-              className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-500"
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-3 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-500 sm:px-4 sm:py-3"
             >
               <RotateCcw className="h-4 w-4" />
               {juegoGanado || juegoPerdido ? "Jugar de Nuevo" : "Reiniciar Palabra"}
@@ -175,9 +174,9 @@ export const AhorcadoGame = () => {
       </div>
 
       {/* Sección de Estadísticas */}
-      <div className="mt-8 border-t border-zinc-800/40 pt-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 bg-zinc-950/20 p-4 rounded-xl border border-blue-500/5">
-          <div className="flex items-center gap-6">
+      <div className="mt-6 border-t border-zinc-800/40 pt-4 sm:mt-8 sm:pt-6">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-xl border border-blue-500/5 bg-zinc-950/20 p-3 sm:flex-row sm:items-center sm:p-4">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2">
               <Trophy className="h-5 w-5 text-yellow-500" />
               <div>
@@ -201,11 +200,11 @@ export const AhorcadoGame = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
             {/* Pista de estructuras */}
             <div className="flex items-center gap-1.5 text-zinc-400 text-xs bg-zinc-900/60 px-3 py-1.5 rounded-lg border border-zinc-800">
               <HelpCircle className="h-3.5 w-3.5 text-blue-400" />
-              <span>trata de ser preciso con tus decisiones</span>
+              <span className="text-[11px] sm:text-xs">trata de ser preciso con tus decisiones</span>
             </div>
 
             <button
