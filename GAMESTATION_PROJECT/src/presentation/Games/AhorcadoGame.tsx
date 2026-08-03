@@ -81,9 +81,6 @@ export const AhorcadoGame = () => {
           <ArrowLeft className="h-4 w-4" />
           Volver a Juegos
         </Link>
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent flex items-center gap-2">
-          Ahorcado Temático
-        </h2>
       </div>
 
       {/* Grid Principal */}
@@ -208,7 +205,7 @@ export const AhorcadoGame = () => {
             {/* Pista de estructuras */}
             <div className="flex items-center gap-1.5 text-zinc-400 text-xs bg-zinc-900/60 px-3 py-1.5 rounded-lg border border-zinc-800">
               <HelpCircle className="h-3.5 w-3.5 text-blue-400" />
-              <span>Estructura de Datos: Set (Conjunto)</span>
+              <span>trata de ser preciso con tus decisiones</span>
             </div>
 
             <button
