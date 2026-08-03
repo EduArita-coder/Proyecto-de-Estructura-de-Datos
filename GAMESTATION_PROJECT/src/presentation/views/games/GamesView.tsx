@@ -54,7 +54,7 @@ export const GamesView = () => {
     {
       title: "Memoria",
       description: "Encuentra las parejas de cartas iguales volteándolas de dos en dos. Pon a prueba tu memoria y concentración: entre menos intentos uses, mejor será tu puntuación.",
-      status: "En Desarrollo",
+      status: "Completado",
       icon: <img src="/public/Games/icono_memoria.svg"/>,
       onPlay: () => navigate("/games/Memoria"),
     },
