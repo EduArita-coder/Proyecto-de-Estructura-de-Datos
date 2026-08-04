@@ -9,8 +9,8 @@ export const RompecabezasGames = () => {
 
   return (
     
-    <div className="flex w-full flex-col items-center justify-start px-3 py-4 sm:px-4 sm:py-6 min-w-0">
-      <div className="w-full max-w-[calc(100vw-1.5rem)] rounded-xl border border-blue-500/5 bg-zinc-900/50 p-4 text-center shadow-2xl sm:max-w-lgshadow-2xl backdrop-blur-sm sm:max-w-lg sm:p-6">
+    <div className="flex w-full flex-col items-center justify-start px-3 py-4 sm:px-4 sm:py-6 min-w-0 rounded-2xl">
+      <div className="w-full max-w-[calc(100vw-1.5rem)] ... shadow-2xl backdrop-blur-sm sm:max-w-lg sm:p-6">
         <div className="mb-4 flex items-center justify-between sm:mb-6">
           <Link
             to="/games"
@@ -51,7 +51,7 @@ export const RompecabezasGames = () => {
               onClick={() => moverPieza(index)}
               disabled={isWinner}
               className={`
-                h-12 text-2xl font-mono font-bold rounded-xl flex items-center justify-center transition-all duration-200 sm:h-16-3xl 
+                h-12 text-2xl font-mono font-bold rounded-xl flex items-center justify-center transition-all duration-200 sm:h-16 sm:text-3xl 
                 ${numero === 0 
                   ? 'bg-transparent shadow-none border border-dashed border-zinc-700/30 cursor-default' 
                   : 'bg-zinc-900/80 hover:bg-zinc-800 text-white border border-blue-500/10 cursor-pointer transform hover:scale-[1.02] active:scale-95 shadow-md shadow-blue-500/5'

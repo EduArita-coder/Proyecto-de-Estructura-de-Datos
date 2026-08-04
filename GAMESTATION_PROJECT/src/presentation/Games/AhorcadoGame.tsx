@@ -71,7 +71,7 @@ export const AhorcadoGame = () => {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-full3 py-4 sm:px-4 sm:py-6 md:px-6 md:py-8">
+    <div className="mx-auto flex w-full max-w-full flex-col px-3 py-4 sm:px-4 sm:py-6 md:px-6 md:py-8">
       {/* Botón de Regresar y Título */}
       <div className="mb-4 flex items-center justify-between sm:mb-6">
         <Link

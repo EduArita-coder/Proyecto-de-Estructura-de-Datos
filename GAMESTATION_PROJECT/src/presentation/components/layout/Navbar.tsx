@@ -24,7 +24,7 @@ export const Navbar = () => {
 
     return (
         <nav className="border-b border-blue-500/20 bg-[#1a1a1a] text-white shadow-lg shadow-blue-950/30 backdrop-blur-sm">
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     {/* Inicio logo y Titulo */}
                     <div className="flex items-center gap-3">
@@ -58,7 +58,7 @@ export const Navbar = () => {
             {/* Inicio Menu Movil */}
             {isMenuOpen && (
                 <div className="md:hidden">
-                    <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                    <div className="space-y-1 px-4 pb-3 pt-2 sm:px-6">
                         <MobileNavLink text="Home" to="/" active={isActive("/")} />
                         <MobileNavLink text="Games" to="/games" active={isActive("/games")} />
                     </div>
